@@ -55,8 +55,8 @@ angular.module('starter.controllers', [])
         p.innerHTML = nfc.bytesToString(record.payload);
         $("#nfcdata").append(p);
       }*/
-
-      alert(records.toString());
+      
+       $("#nfcdata").append(JSON.stringify(records));
     };
 
     nfc.addNdefListener(parseTag);
