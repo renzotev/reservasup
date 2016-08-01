@@ -1,0 +1,38 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <a class="button button-clear ion-plus-circled add-reservation" href="#/app/reservar"></a>
+    </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Reservas UP</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/app/perfil">
+          <span class="ion-person"></span>Mi perfil
+        </ion-item>
+        <ion-item menu-close href="#/app/reservar">
+          <span class="ion-android-calendar"></span>Reservar
+        </ion-item>
+        <ion-item menu-close href="#/app/resumen">
+          <span class="ion-android-list"></span>Mis reservas
+        </ion-item>
+        <!--<ion-item menu-close href="#/app/administrar">
+          <span class="ion-android-settings"></span>Administrar
+        </ion-item>
+      </ion-list>-->
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,25 @@
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	-o-transition arguments
+	transition arguments
+
+clearfix()
+	*zoom 1
+
+	&:before,
+	&:after
+		content ""
+		display table
+		
+	&:after
+		clear both
+
+opacity(n, i = '')
+	opacity n i
+	filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')') i

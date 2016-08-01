@@ -1,0 +1,385 @@
+html,
+body,
+background-color bg_body {
+  color: #555;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #555;
+}
+.pane,
+.view {
+  background-color: #f3f3f3;
+}
+.marginT30 {
+  margin-top: 30px !important;
+}
+.bar-header {
+  border-bottom: 0;
+}
+.bar-stable .button.button-icon {
+  color: #fff;
+}
+.bar.bar-stable .add-reservation {
+  color: #fff;
+  font-size: 23px;
+  line-height: 32px;
+}
+.bar.bar-stable .title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.onezone-datepicker-disable-day,
+.onezone-datepicker-different-month.onezone-datepicker-disable-day {
+  text-decoration: line-through;
+}
+.onezone-datepicker-day {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.onezone-datepicker-active-day,
+.onezone-datepicker-active-day:hover {
+  background-color: #0970bd;
+  color: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.onezone-datepicker {
+  width: calc(100% - 30px) !important;
+  margin: 30px auto;
+  border: 1px solid #cbd5dd;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.blue-block {
+  background-color: #0970bd;
+  min-height: 60px;
+  color: #fff;
+  position: relative;
+}
+.blue-block .text-center {
+  padding: 10px 0;
+}
+.blue-block .ion-android-arrow-dropleft-circle {
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  left: 10px;
+  margin-top: -15px;
+  cursor: pointer;
+}
+.box-white {
+  background: #fff;
+  color: #767676;
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.05);
+}
+.hours-wrapper {
+  margin: 30px 15px;
+}
+.hours-wrapper .ion-android-time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  color: #cbd5dd;
+  font-size: 20px;
+  margin-top: -14px;
+}
+.hours-wrapper .checkbox input:checked:before,
+.hours-wrapper .checkbox input:checked + .checkbox-icon:before {
+  background-color: #58b957;
+  border-color: #49ad48;
+}
+.hours-wrapper .hour-detail {
+  position: relative;
+  *zoom: 1;
+}
+.hours-wrapper .hour-detail:before,
+.hours-wrapper .hour-detail:after {
+  content: "";
+  display: table;
+}
+.hours-wrapper .hour-detail:after {
+  clear: both;
+}
+.week-resume {
+  position: relative;
+  margin: 10px 15px;
+  padding: 12px 10px 12px 35px;
+  font-size: 16px;
+  display: block;
+  text-decoration: none;
+}
+.week-resume .ion-android-list {
+  color: #cbd5dd;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin-top: -10.5px;
+}
+.week-resume .ion-arrow-right-b {
+  color: #0970bd;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -11px;
+  font-size: 22px;
+}
+.login-page form {
+  margin: 35px 0 0 0;
+}
+.login-page form .item-submit {
+  background-color: transparent;
+  border: 0;
+}
+.login-page form .item-submit .button.button-positive {
+  background-color: #0970bd;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.login-page form .item-submit .button.button-positive.active,
+.login-page form .item-submit .button.button-positive.activated,
+.login-page form .item-submit .button.button-positive:active {
+  background-color: #064e84;
+}
+.login-page form .item-input {
+  margin: 0 15px 15px;
+  padding: 0;
+}
+.login-page form .item-input input[type="text"],
+.login-page form .item-input input[type="password"] {
+  font-size: 16px;
+  padding-left: 24px;
+}
+.login-page form .item-input .input-label {
+  background-color: #eee;
+  width: 50px;
+  height: 45px;
+  color: #767676;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  padding: 0;
+}
+.login-page .login-logo {
+  background-color: #0970bd;
+  text-align: center;
+  padding: 30px 0;
+}
+.login-page .login-logo img {
+  display: inline-block;
+}
+.login-page .login-logo h1 {
+  color: #fff;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.menu-left {
+  background-color: #2d2f3f;
+}
+.menu-left .bar.bar-stable .title,
+.menu-left .bar.bar-stable,
+.menu-left .item-complex .item-content,
+.menu-left .item-radio .item-content,
+.menu-left .item {
+  background: #2d2f3f;
+  color: #767676;
+}
+.menu-left .bar.bar-stable .title {
+  color: #fff;
+}
+.menu-left .item {
+  border-color: #36384c;
+}
+.menu-left .item-complex .item-content span,
+.menu-left .item-radio .item-content span {
+  margin-right: 10px;
+}
+.menu-left .item-complex .item-content.active,
+.menu-left .item-radio .item-content.active,
+.menu-left .item-complex .item-content.activated,
+.menu-left .item-radio .item-content.activated,
+.menu-left .item-complex .item-content:active,
+.menu-left .item-radio .item-content:active {
+  color: #fff;
+  background: #36384c;
+}
+.resource-detail {
+  margin-left: 60px;
+  margin-right: 15px;
+  font-size: 16px;
+  padding: 20px 0;
+}
+.resource-detail .detail-line {
+  margin-bottom: 5px;
+  *zoom: 1;
+}
+.resource-detail .detail-line:before,
+.resource-detail .detail-line:after {
+  content: "";
+  display: table;
+}
+.resource-detail .detail-line:after {
+  clear: both;
+}
+.reservations-list {
+  margin: 15px 15px 30px 15px;
+}
+.reservations-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding: 10px 15px;
+  border-left: 3px solid transparent;
+}
+.reservations-list li a {
+  display: block;
+  text-decoration: none;
+  color: #767676;
+}
+.reservations-list li.reserv-done {
+  border-left: 3px solid #58b957;
+}
+.reservations-list li.reserv-cancel {
+  border-left: 3px solid #db524b;
+}
+.reservations-list li.reserv-pending {
+  border-left: 3px solid #f2ae43;
+}
+.reservations-list li .hour-resource {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding-right: 18px;
+}
+.reservations-list li .hour-resource .ion-android-time {
+  color: #cbd5dd;
+  font-size: 15px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+.date-picker-wrapper {
+  margin-top: -15px;
+}
+.date-picker-wrapper .item-input {
+  margin: 0 15px 15px;
+  padding: 0;
+}
+.date-picker-wrapper .item-input select {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  padding: 0 15px;
+  margin-right: 15px;
+}
+.date-picker-wrapper .item-input input[type="text"],
+.date-picker-wrapper .item-input input[type="password"] {
+  font-size: 16px;
+  padding-left: 24px;
+}
+.date-picker-wrapper .list {
+  background-color: #0970bd;
+  padding: 0 15px 15px 15px;
+  margin: 0;
+}
+.date-picker-wrapper .input-label {
+  background-color: #eee;
+  width: 50px;
+  height: 45px;
+  color: #767676;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  padding: 0;
+}
+.search-resource {
+  margin: 0;
+  padding: 15px;
+}
+.search-resource .item-input {
+  margin: 0 15px 15px;
+  padding: 0;
+}
+.search-resource .item-input select {
+  width: 100%;
+  height: 45px;
+  border: 0;
+  padding: 0 15px;
+  margin-right: 15px;
+}
+.search-resource .item-input input[type="text"],
+.search-resource .item-input input[type="password"] {
+  font-size: 16px;
+  padding-left: 24px;
+}
+.search-resource .item-input .input-label {
+  background-color: #eee;
+  width: 50px;
+  height: 45px;
+  color: #767676;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  padding: 0;
+}
+.search-form-wrapper {
+  margin: 0 15px 30px 15px;
+}
+.search-form-wrapper .button.button-balanced {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.white-block {
+  background-color: #fff;
+  padding-bottom: 12px;
+}
+.white-block .profile-info {
+  text-align: center;
+  color: #555;
+}
+.white-block .profile-info h2 {
+  margin-bottom: 0;
+  font-size: 26px;
+}
+.white-block .profile-info h3 {
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 0;
+}
+.white-block .profile-info .codigo-alumno {
+  font-size: 15px;
+  margin-top: 15px;
+}
+.white-block .profile-info .profile-image {
+  border: 3px solid #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 110px;
+  height: 110px;
+  display: inline-block;
+  margin-top: -45px;
+  position: relative;
+  z-index: 2;
+}
+.white-block .profile-info .profile-image img {
+  max-width: 100%;
+  height: auto;
+}
