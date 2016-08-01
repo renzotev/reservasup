@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
         var record = records[i],
         p = document.createElement('p');
         p.innerHTML = nfc.bytesToString(record.payload);
-        document.getElementById("nfcdata").appendChild(p);
+        $("#nfcdata").append(p);
       }
 
       //alert(records);
