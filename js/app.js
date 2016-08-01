@@ -79,6 +79,16 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'starter.controllers']
     }
   })
 
+  .state('app.activar', {
+    url: '/activar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/activar.html',
+        controller: 'ActivarCtrl'
+      }
+    }
+  })
+
   .state('app.playlists', {
     url: '/playlists',
     views: {

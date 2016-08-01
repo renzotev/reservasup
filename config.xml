@@ -26,6 +26,7 @@
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
 
+  <gap:plugin name="phonegap-nfc" source="npm" />
   <platform name="android" />
 </widget>
 

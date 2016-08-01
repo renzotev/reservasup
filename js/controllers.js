@@ -41,7 +41,12 @@ angular.module('starter.controllers', [])
     $ionicSideMenuDelegate.canDragContent(true);
     $window.location.href = '#/app/perfil';
   };
-  
+
+  $scope.activarReserva = function () {
+    var uris = "http://www.google.com";
+    nfc.handover(uris);
+  };
+
   $scope.onezoneDatepicker = {
       date: new Date(), // MANDATORY
       mondayFirst: true,
@@ -85,4 +90,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('ActivarCtrl', function($scope) {
+  /*var uris = "http://www.google.com";
+  nfc.handover(uris);*/
 });
+
