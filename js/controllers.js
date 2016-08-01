@@ -43,8 +43,16 @@ angular.module('starter.controllers', [])
   };
 
   $scope.activarReserva = function () {
-    var uris = "http://www.google.com";
-    nfc.handover(uris);
+    //var uris = "http://www.google.com";
+    //nfc.handover(uris);
+
+    function parseTag(nfcEvent) {
+      var records = nfcEvent.tagData;
+
+      alert(records);
+    };
+
+    nfc.addNdefListener(parseTag);
   };
 
   $scope.onezoneDatepicker = {
