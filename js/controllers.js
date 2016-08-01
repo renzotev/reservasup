@@ -49,7 +49,14 @@ angular.module('starter.controllers', [])
     function parseTag(nfcEvent) {
       var records = nfcEvent.tagData;
 
-      alert(records);
+      for (var i = 0; i < records.length; i++) {
+        var record = records[i],
+        p = document.createElement('p');
+        p.innerHTML = nfc.bytesToString(record.payload);
+        document.getElementById("nfcdata").appendChild(p);
+      }
+
+      //alert(records);
     };
 
     nfc.addNdefListener(parseTag);
