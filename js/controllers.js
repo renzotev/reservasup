@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
     $ionicSideMenuDelegate.canDragContent(true);
     $window.location.href = '#/app/perfil';
   };
-
+  
   $scope.onezoneDatepicker = {
       date: new Date(), // MANDATORY
       mondayFirst: true,

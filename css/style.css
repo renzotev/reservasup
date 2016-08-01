@@ -56,6 +56,11 @@ h6 {
   margin: 30px auto;
   border: 1px solid #cbd5dd;
 }
+[nav-bar-transition="ios"] [nav-bar="active"] .bar,
+[nav-bar-transition="ios"] [nav-bar="entering"] .bar,
+.bar.bar-stable {
+  background: #242633;
+}
 .pull-left {
   float: left;
 }
@@ -177,7 +182,7 @@ h6 {
 .login-page .login-logo {
   background-color: #0970bd;
   text-align: center;
-  padding: 30px 0;
+  padding: 60px 0 30px 0;
 }
 .login-page .login-logo img {
   display: inline-block;
@@ -276,6 +281,10 @@ h6 {
 .date-picker-wrapper {
   margin-top: -15px;
 }
+.date-picker-wrapper .center-date {
+  display: block;
+  margin-left: 20px;
+}
 .date-picker-wrapper .item-input {
   margin: 0 15px 15px;
   padding: 0;
@@ -285,7 +294,6 @@ h6 {
   height: 45px;
   border: 0;
   padding: 0 15px;
-  margin-right: 15px;
 }
 .date-picker-wrapper .item-input input[type="text"],
 .date-picker-wrapper .item-input input[type="password"] {
@@ -320,7 +328,6 @@ h6 {
   height: 45px;
   border: 0;
   padding: 0 15px;
-  margin-right: 15px;
 }
 .search-resource .item-input input[type="text"],
 .search-resource .item-input input[type="password"] {
