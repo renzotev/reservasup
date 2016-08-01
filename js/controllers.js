@@ -47,16 +47,16 @@ angular.module('starter.controllers', [])
     //nfc.handover(uris);
 
     function parseTag(nfcEvent) {
-      var records = nfcEvent.tagData;
+      var records = nfcEvent;
 
-      for (var i = 0; i < records.length; i++) {
+      /*for (var i = 0; i < records.length; i++) {
         var record = records[i],
         p = document.createElement('p');
         p.innerHTML = nfc.bytesToString(record.payload);
         $("#nfcdata").append(p);
-      }
+      }*/
 
-      //alert(records);
+      alert(records.toString());
     };
 
     nfc.addNdefListener(parseTag);
