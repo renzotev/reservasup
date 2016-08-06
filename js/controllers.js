@@ -46,20 +46,27 @@ angular.module('starter.controllers', [])
     //var uris = "http://www.google.com";
     //nfc.handover(uris);
 
-    function parseTag(nfcEvent) {
+    /*function parseTag(nfcEvent) {
       var records = nfcEvent;
 
-      /*for (var i = 0; i < records.length; i++) {
+      for (var i = 0; i < records.length; i++) {
         var record = records[i],
         p = document.createElement('p');
         p.innerHTML = nfc.bytesToString(record.payload);
         $("#nfcdata").append(p);
-      }*/
+      }
       
        $("#nfcdata").append(JSON.stringify(records));
     };
 
-    nfc.addNdefListener(parseTag);
+    nfc.addNdefListener(parseTag);*/
+
+    var record = ndef.uriRecord("http://www.kazi.net");
+    nfc.share(
+        [record], 
+        function(){ alert ("Successful")},
+        function(){ alert ("Failed")}
+    );
   };
 
   $scope.onezoneDatepicker = {
@@ -120,11 +127,6 @@ angular.module('starter.controllers', [])
 
     nfc.addNdefListener(parseTag);*/
 
-    var record = ndef.uriRecord("http://www.kazi.net");
-    nfc.share(
-        [record], 
-        function(){ alert ("Successful")},
-        function(){ alert ("Failed")}
-    );
+    
 });
 
