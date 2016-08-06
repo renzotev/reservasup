@@ -98,11 +98,12 @@ angular.module('starter.controllers', [])
   /*var uris = "http://www.google.com";
   nfc.handover(uris);*/
 
-  var message = [
+ /* var message = [
     ndef.textRecord("hello, world")
   ];
 
-  nfc.share(message);
+  nfc.share(message);*/
+
 /*
   function parseTag(nfcEvent) {
     var records = nfcEvent;
@@ -118,5 +119,8 @@ angular.module('starter.controllers', [])
     };
 
     nfc.addNdefListener(parseTag);*/
+
+    var record = ndef.uriRecord("http://chariotsolutions.com");
+    nfc.share(record);
 });
 
