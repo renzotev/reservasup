@@ -95,8 +95,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ActivarCtrl', function($scope) {
-  var uris = "http://www.google.com";
-  nfc.handover(uris);
+  /*var uris = "http://www.google.com";
+  nfc.handover(uris);*/
+
+  var message = [
+    ndef.textRecord("hello, world")
+  ];
+
+  nfc.share(message);
 /*
   function parseTag(nfcEvent) {
     var records = nfcEvent;
