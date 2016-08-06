@@ -27,7 +27,6 @@
   </feature>
 
   <gap:plugin name="phonegap-nfc" source="npm" />
-  <gap:plugin name="cordova-plugin-hce" source="npm" />
   <platform name="android" />
 </widget>
 
