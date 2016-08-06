@@ -85,16 +85,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
 .controller('LoginCtrl', function($scope, $ionicSideMenuDelegate) {
   $ionicSideMenuDelegate.canDragContent(false);
@@ -104,11 +94,23 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
 .controller('ActivarCtrl', function($scope) {
-  /*var uris = "http://www.google.com";
-  nfc.handover(uris);*/
+  var uris = "http://www.google.com";
+  nfc.handover(uris);
+/*
+  function parseTag(nfcEvent) {
+    var records = nfcEvent;
+
+      for (var i = 0; i < records.length; i++) {
+        var record = records[i],
+        p = document.createElement('p');
+        p.innerHTML = nfc.bytesToString(record.payload);
+        $("#nfcdata").append(p);
+      }
+      
+       $("#nfcdata").append(JSON.stringify(records));
+    };
+
+    nfc.addNdefListener(parseTag);*/
 });
 
