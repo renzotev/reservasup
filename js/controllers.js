@@ -120,7 +120,11 @@ angular.module('starter.controllers', [])
 
     nfc.addNdefListener(parseTag);*/
 
-    var record = ndef.uriRecord("http://chariotsolutions.com");
-    nfc.share(record);
+    var record = ndef.uriRecord("http://www.kazi.net");
+    nfc.share(
+        [record], 
+        function(){ alert ("Successful")},
+        function(){ alert ("Failed")}
+    );
 });
 
