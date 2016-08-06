@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
     //var uris = "http://www.google.com";
     //nfc.handover(uris);
 
-    function parseTag(nfcEvent) {
+    /*function parseTag(nfcEvent) {
       var records = nfcEvent;
 
       for (var i = 0; i < records.length; i++) {
@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
         function(){ alert ("Failed")}
     );
 
-    alert(record);
+    alert(record);*/
   };
 
   $scope.onezoneDatepicker = {
@@ -128,7 +128,12 @@ angular.module('starter.controllers', [])
     };
 
     nfc.addNdefListener(parseTag);*/
+  function onNfc(nfcEvent) {
+    // display the tag as JSON
+    $("#nfcdata").append(JSON.stringify(nfcEvent.tag));
+  }
 
+  nfc.addNdefListener(onNfc);
     
 });
 
