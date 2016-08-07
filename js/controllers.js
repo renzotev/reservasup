@@ -93,14 +93,14 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ActivarCtrl', function($scope, $nfcService) {
+.controller('ActivarCtrl', function($scope, nfcService) {
   $scope.tag = nfcService.tag;
     $scope.clear = function() {
     nfcService.clearTag();
   };
 })
 
-.factory('nfcService', function ($rootScope, $ionicPlatform) {
+.factory('nfcService', function ($rootScope, $ionicPlatform, $nfcServiceProvider) {
   var tag = {};
 
   $ionicPlatform.ready(function() {
