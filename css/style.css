@@ -142,6 +142,9 @@ h6 {
   margin-top: -11px;
   font-size: 22px;
 }
+.bg-login {
+  background: url("../img/bg-login-up.jpg");
+}
 .login-page form {
   margin: 35px 0 0 0;
 }
@@ -151,9 +154,6 @@ h6 {
 }
 .login-page form .item-submit .button.button-positive {
   background-color: #0970bd;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
 }
 .login-page form .item-submit .button.button-positive.active,
 .login-page form .item-submit .button.button-positive.activated,
@@ -163,34 +163,39 @@ h6 {
 .login-page form .item-input {
   margin: 0 15px 15px;
   padding: 0;
+  background-color: #00243e;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 .login-page form .item-input input[type="text"],
 .login-page form .item-input input[type="password"] {
   font-size: 16px;
-  padding-left: 24px;
+  padding-left: 0;
+  background-color: #00243e;
+  color: #fff;
 }
 .login-page form .item-input .input-label {
-  background-color: #eee;
+  background-color: #00243e;
   width: 50px;
   height: 45px;
-  color: #767676;
+  color: #fff;
   text-align: center;
   line-height: 45px;
-  font-size: 20px;
+  font-size: 30px;
   padding: 0;
 }
 .login-page .login-logo {
-  background-color: #0970bd;
   text-align: center;
-  padding: 60px 0 30px 0;
+  padding: 100px 0 0 0;
 }
 .login-page .login-logo img {
   display: inline-block;
 }
 .login-page .login-logo h1 {
   color: #fff;
-  font-size: 30px;
-  margin-top: 10px;
+  font-size: 24px;
+  margin-top: 40px;
   margin-bottom: 0;
 }
 .menu-left {

@@ -27,9 +27,6 @@
   </feature>
 
   <gap:plugin name="phonegap-nfc" source="npm" />
-  <plugin spec="https://github.com/don/cordova-plugin-hce.git">
-    <param name="AID_FILTER" value="F222222222" />
-  </plugin>
   <platform name="android" />
 </widget>
 
