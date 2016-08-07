@@ -26,6 +26,12 @@
   </feature>
 
   <gap:plugin name="phonegap-nfc" source="npm" />
+  <gap:splash src="resources/android/splash/drawable-port-ldpi-screen.png" gap:platform="android" gap:density="port-ldpi"/>
+  <gap:splash src="resources/android/splash/drawable-port-mdpi-screen.png" gap:platform="android" gap:density="port-mdpi"/>
+  <gap:splash src="resources/android/splash/drawable-port-hdpi-screen.png" gap:platform="android" gap:density="port-hdpi"/>
+  <gap:splash src="resources/android/splash/drawable-port-xhdpi-screen.png" gap:platform="android" gap:density="port-xhdpi"/>
+  <gap:splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" gap:platform="android" gap:density="port-xxhdpi"/>
+  <gap:splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" gap:platform="android" gap:density="port-xxxhdpi"/>
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
@@ -33,12 +39,6 @@
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
     <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
-    <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
-    <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
-    <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
-    <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
-    <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
-    <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
     <preference name="Fullscreen" value="true" />
   </platform>
 </widget>
