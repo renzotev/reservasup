@@ -108,12 +108,11 @@ angular.module('starter.controllers', [])
           console.log(JSON.stringify(nfcEvent.tag, null, 4));
           $rootScope.$apply(function(){
               angular.copy(nfcEvent.tag, tag);
-              // if necessary $state.go('some-route')
           });
       }, function () {
-          console.log("Listening for NDEF Tags.");
+          
       }, function (reason) {
-          alert("Error adding NFC Listener " + reason);
+          
       });
 
   });
