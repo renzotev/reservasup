@@ -115,7 +115,7 @@ angular.module('starter.controllers', [])
       selectable: true,
       editable: true,
       defaultView: 'agendaWeek',
-      schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
+      schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
       eventClick: $scope.alertEventOnClick,
       eventDrop: $scope.alertOnDrop,
       eventResize: $scope.alertOnResize
