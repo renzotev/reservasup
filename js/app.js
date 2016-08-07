@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'starter.controllers'])
+angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.calendar', 'angularSoap', 'starter.controllers'])
 
 .factory('nfcService', function ($rootScope, $ionicPlatform) {
   var tag = {};
@@ -76,7 +76,18 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'starter
     url: '/reservar',
     views: {
       'menuContent': {
-        templateUrl: 'templates/reservar.html'
+        templateUrl: 'templates/reservar.html',
+        controller: 'ReservCtrl'
+      }
+    }
+  })
+
+  .state('app.hora', {
+    url: '/hora',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/hora.html',
+        controller: 'HoraCtrl'
       }
     }
   })

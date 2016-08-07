@@ -100,6 +100,38 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('ReservCtrl', function($scope, soapService) {
+  soapService.HelloWorld().then(function(response){
+    $scope.response = response;
+  });
+})
+
+.controller('HoraCtrl', function($scope) {
+  $scope.eventSources = [];
+
+  $scope.uiConfig = {
+    calendar:{
+      height: 450,
+      selectable: true,
+      editable: true,
+      defaultView: 'agendaWeek',
+      eventClick: $scope.alertEventOnClick,
+      eventDrop: $scope.alertOnDrop,
+      eventResize: $scope.alertOnResize
+    }
+  };
+})
+
+.factory("soapService", ['$soap',function($soap){
+    var base_url = "http://localhost:3034/ReservaService.svc?wsdl";
+
+    return {
+        HelloWorld: function(){
+            return $soap.post(base_url,"HelloWorld");
+        }
+    }
+}])
+
 .factory('nfcService', function ($rootScope, $ionicPlatform, $nfcServiceProvider) {
   var tag = {};
 
