@@ -72,9 +72,9 @@ angular.module('starter.controllers', [])
       disableSwipe: false,
       disableWeekend: false,
       disableDates: [new Date(2016, 7, 2), new Date(2016, 7, 3), new Date(2016, 7, 4)],
-      showDatepicker: true,
+      showDatepicker: false,
       showTodayButton: false,
-      calendarMode: true,
+      calendarMode: false,
       hideCancelButton: true,
       hideSetButton: true,
       highlights: [],
@@ -101,7 +101,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ReservCtrl', function($scope, soapService) {
-  soapService.HelloWorld().then(function(response){
+  soapService.ListarTipoRecurso().then(function(response){
     $scope.response = response;
   });
 })
@@ -127,8 +127,8 @@ angular.module('starter.controllers', [])
     var base_url = "http://localhost:3034/ReservaService.svc?wsdl";
 
     return {
-        HelloWorld: function(){
-            return $soap.post(base_url,"HelloWorld");
+        ListarTipoRecurso: function(){
+            return $soap.post(base_url,"ListarTipoRecurso");
         }
     }
 }])
