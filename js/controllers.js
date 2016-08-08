@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
       hideSetButton: true,
       highlights: [],
       callback: function(value){
-          // your code
+        $window.location.href = '#/app/hora';
       }
   };
 })
