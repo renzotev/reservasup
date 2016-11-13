@@ -4,22 +4,33 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'onezone-datepicker', 'starter.controllers'])
+angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.calendar', 'angularSoap', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
+.factory('nfcService', function ($rootScope, $ionicPlatform) {
+  var tag = {};
+
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+      nfc.addNdefListener(function (nfcEvent) {
+          console.log(JSON.stringify(nfcEvent.tag, null, 4));
+          $rootScope.$apply(function(){
+              angular.copy(nfcEvent.tag, tag);
+              // if necessary $state.go('some-route')
+          });
+      }, function () {
+          console.log("Listening for NDEF Tags.");
+      }, function (reason) {
+          alert("Error adding NFC Listener " + reason);
+      });
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
   });
+
+  return {
+      tag: tag,
+
+      clearTag: function () {
+          angular.copy({}, this.tag);
+      }
+  };
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -65,7 +76,18 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'starter.controllers']
     url: '/reservar',
     views: {
       'menuContent': {
-        templateUrl: 'templates/reservar.html'
+        templateUrl: 'templates/reservar.html',
+        controller: 'ReservCtrl'
+      }
+    }
+  })
+
+  .state('app.hora', {
+    url: '/hora',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/hora.html',
+        controller: 'HoraCtrl'
       }
     }
   })

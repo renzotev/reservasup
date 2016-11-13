@@ -9,16 +9,6 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
-
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -82,14 +72,14 @@ angular.module('starter.controllers', [])
       disableSwipe: false,
       disableWeekend: false,
       disableDates: [new Date(2016, 7, 2), new Date(2016, 7, 3), new Date(2016, 7, 4)],
-      showDatepicker: true,
+      showDatepicker: false,
       showTodayButton: false,
-      calendarMode: true,
+      calendarMode: false,
       hideCancelButton: true,
       hideSetButton: true,
       highlights: [],
       callback: function(value){
-          // your code
+        $window.location.href = '#/app/hora';
       }
   };
 })
@@ -103,105 +93,68 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('ActivarCtrl', function($scope) {
-  /*var uris = "http://www.google.com";
-  nfc.handover(uris);*/
+.controller('ActivarCtrl', function($scope, nfcService) {
+  $scope.tag = nfcService.tag;
+    $scope.clear = function() {
+    nfcService.clearTag();
+  };
+})
 
- /*var message = [
-    ndef.textRecord("hello, world")
-  ];
+.controller('ReservCtrl', function($scope, soapService) {
+  soapService.ListarTipoRecurso().then(function(response){
+    $scope.response = response;
+  });
+})
 
-  nfc.share(message);*/
+.controller('HoraCtrl', function($scope) {
+  $scope.eventSources = [];
 
-
-/*
-  function parseTag(nfcEvent) {
-    var records = nfcEvent;
-
-      for (var i = 0; i < records.length; i++) {
-        var record = records[i],
-        p = document.createElement('p');
-        p.innerHTML = nfc.bytesToString(record.payload);
-        $("#nfcdata").append(p);
-      }
-      
-       $("#nfcdata").append(JSON.stringify(records));
-    };
-
-    nfc.addNdefListener(parseTag);*/
-  /*function onNfc(nfcEvent) {
-    // display the tag as JSON
-    $("#nfcdata").append(JSON.stringify(nfcEvent.tag));
-  }
-
-  nfc.addNdefListener(onNfc);*/
-
-var SAMPLE_LOYALTY_CARD_AID = 'F222222222';
-var SELECT_APDU_HEADER = '00A40400';
-var SELECT_OK_SW = '9000';
-var UNKNOWN_CMD_SW = '0000';
-var SELECT_APDU = buildSelectApdu(SAMPLE_LOYALTY_CARD_AID);
-
-function toPaddedHexString(i) {
-    return ("00" + i.toString(16)).substr(-2);
-}
-
-function buildSelectApdu(aid) {
-    // Format: [CLASS | INSTRUCTION | PARAMETER 1 | PARAMETER 2 | LENGTH | DATA]
-    var aidByteLength = toPaddedHexString(aid.length / 2);
-    var data = SELECT_APDU_HEADER + aidByteLength + aid;
-    return data.toLowerCase();
-}
-
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    onDeviceReady: function() {
-        // register to receive APDU commands
-      hce.registerCommandCallback(app.onCommand);
-
-        // register to for deactivated callback
-        hce.registerDeactivatedCallback(app.onDeactivated);
-
-        app.okCommand = hce.util.hexStringToByteArray(SELECT_OK_SW);
-        app.unknownCommand = hce.util.hexStringToByteArray(UNKNOWN_CMD_SW);
-    },
-    // onCommand is called when an APDU command is received from the HCE reader
-    // if the select apdu command is received, the loyalty card data is returned to the reader
-    // otherwise unknown command is returned
-    onCommand: function(command) {
-        console.log(command);
-        var commandAsBytes = new Uint8Array(command);
-        var commandAsString = hce.util.byteArrayToHexString(commandAsBytes);
-
-        //alert(commandAsString);
-        console.log('received command ' + commandAsString);
-        console.log('expecting        ' + SELECT_APDU);
-
-        if (SELECT_APDU === commandAsString) {
-            var accountNumberAsBytes = hce.util.stringToBytes(accountNumber.value);
-            var data = hce.util.concatenateBuffers(accountNumberAsBytes, app.okCommand);
-
-            console.log('Sending ' + hce.util.byteArrayToHexString(data));
-            hce.sendResponse(data);
-        } else {
-            console.log('UNKNOWN CMD SW');
-            hce.sendResponse(app.unknownCommand);
-        }
-
-    },
-    onDeactivated: function(reason) {
-        console.log('Deactivated ' + reason);
+  $scope.uiConfig = {
+    calendar:{
+      height: 450,
+      selectable: true,
+      editable: true,
+      defaultView: 'agendaWeek',
+      schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+      eventClick: $scope.alertEventOnClick,
+      eventDrop: $scope.alertOnDrop,
+      eventResize: $scope.alertOnResize
     }
+  };
+})
 
-};
+.factory("soapService", ['$soap',function($soap){
+    var base_url = "http://localhost:3034/ReservaService.svc?wsdl";
 
-app.initialize();
-    
+    return {
+        ListarTipoRecurso: function(){
+            return $soap.post(base_url,"ListarTipoRecurso");
+        }
+    }
+}])
+
+.factory('nfcService', function ($rootScope, $ionicPlatform, $nfcServiceProvider) {
+  var tag = {};
+
+  $ionicPlatform.ready(function() {
+      nfc.addNdefListener(function (nfcEvent) {
+          console.log(JSON.stringify(nfcEvent.tag, null, 4));
+          $rootScope.$apply(function(){
+              angular.copy(nfcEvent.tag, tag);
+          });
+      }, function () {
+          
+      }, function (reason) {
+          
+      });
+
+  });
+
+  return {
+      tag: tag,
+
+      clearTag: function () {
+          angular.copy({}, this.tag);
+      }
+  };
 });
-
