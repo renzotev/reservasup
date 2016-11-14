@@ -66,6 +66,12 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.cale
     }
   })
 
+  .config(['$ionicConfigProvider', function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
+  }])
+
   .state('app.perfil', {
     url: '/perfil',
     views: {
