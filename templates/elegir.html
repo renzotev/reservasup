@@ -1,0 +1,63 @@
+<ion-view view-title="ELEGIR SALA" hide-back-button="true">
+	<ion-content>
+		<div class="blue-block">
+			<div ng-click="$ionicGoBack()" class="ion-android-arrow-dropleft-circle"></div>
+
+			<div class="steps p-50">
+				<ul class="circles">
+					<li>1</li>
+					<li class="active">2</li>
+					<li>3</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="hours-wrapper">
+			<p>Mostrando 1 a 10 de 44 registros</p>
+			<ion-list>
+				<div ng-repeat="item in disponibles">
+					<ion-radio
+			                 ng-value="item.value"
+			                class="radio-positive" on-finish-render="ngRepeatFinished">
+						
+						<div class="itemSala">
+			                <span class="ion-android-desktop"></span>
+			        		{{ item.sala }}
+								
+			        		<span class="separatorSala">|</span>
+			        		
+			        		<span class="ion-android-people"></span>
+			        		{{ item.capacidad }}
+		        		</div>
+
+			      	</ion-radio>
+			      	<div class="itemSalaHidden">
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-desktop"></span>
+		        			Sala: {{ item.sala }}
+	        			</div>
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-people"></span>
+		        			Capacidad: {{ item.capacidad }}
+	        			</div>
+						<div class="rItmSaHi c-blue" ng-click="show1 = !show1">
+	        				<span class="ion-camera"></span>
+	        				Foto
+	        				<img src="{{ item.foto }}" class="img-responsive" ng-show="show1">
+	        			</div>
+	        			<div class="rItmSaHi c-blue" ng-click="show2 = !show2">
+		        			<span class="ion-location"></span>
+		        			Ubicación
+		        			<img src="{{ item.ubicacion }}" class="img-responsive" ng-show="show2">
+	        			</div>
+	        		</div>
+				</div>
+			</ion-list>
+		</div>
+
+		<div class="search-form-wrapper m-50">
+			<a class="button button-block button-balanced" href="#/app/confirmar">RESERVAR</a>	
+		</div>
+
+	</ion-content>
+</ion-view>

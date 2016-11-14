@@ -1,5 +1,5 @@
 html,
-body,
+body
 	background-color bg_body
 	color color_general
 
@@ -37,6 +37,11 @@ h6
 			text-transform uppercase
 			font-size 14px
 
+.img-responsive
+	display block
+	height auto
+	max-width 100%
+
 .onezone-datepicker-disable-day,
 .onezone-datepicker-different-month.onezone-datepicker-disable-day
 	text-decoration line-through
@@ -52,8 +57,10 @@ h6
 
 .onezone-datepicker
 	width calc(100% - 30px) !important
-	margin 30px auto
-	border 1px solid #CBD5DD
+	margin 0 auto
+	
+	&.onezone-datepicker-show
+		margin-bottom 15px
 
 [nav-bar-transition="ios"] [nav-bar="active"] .bar,
 [nav-bar-transition="ios"] [nav-bar="entering"] .bar,
@@ -92,14 +99,14 @@ h6
 .hours-wrapper
 	margin 30px 15px
 	
-	.ion-android-time
+	/*.ion-android-time
 		position absolute
 		top 50%
 		left 50%
 		margin-left -8px
 		color #CBD5DD
 		font-size 20px
-		margin-top -14px
+		margin-top -14px*/
 	
 	.checkbox input:checked:before,
 	.checkbox input:checked + .checkbox-icon:before
@@ -268,8 +275,6 @@ h6
 				margin-top -10px
 
 .date-picker-wrapper
-	margin-top -15px
-	
 	.center-date
 		display block
 		margin-left 20px
@@ -334,7 +339,10 @@ h6
 			padding 0
 
 .search-form-wrapper
-	margin 0 15px 30px 15px
+	margin 15px 30px
+	
+	&.m-50
+		margin 15px
 	
 	.button.button-balanced
 		border-radius 0
@@ -374,3 +382,62 @@ h6
 			img
 				max-width 100%
 				height auto
+
+.steps
+	text-align right
+	padding-top 30px
+	padding-right 30px
+	
+	&.p-50
+		padding-top 15px
+		padding-right 15px
+	
+	.circles
+		display inline-block
+		
+		li
+			margin 0 2px
+			display inline-block
+			background-color #11c1f3
+			border 1px solid #0a9dc7
+			width 30px
+			height 30px
+			text-align center
+			color white
+			border-radius 50%
+			line-height 27px
+			opacity .5
+			font-weight bold
+			
+			&.active
+				opacity 1 
+
+.itemSala
+	.separatorSala
+		display inline-block
+		margin 0 5px
+	
+.itemSalaHidden
+	display none
+	background #e3e2ff
+	border 1px solid #ddd
+	border-top 2px solid white
+	margin -1px
+	padding 10px 15px
+	
+	.rItmSaHi
+		margin-bottom 10px
+		
+		&:last-child
+			margin-bottom 0
+	
+	.c-blue
+		color azul
+
+.item-radio input:checked + .radio-content .item-content
+	background #e3e2ff
+
+.confirmarReserva
+	.item
+		background-color #33cd5f
+		color white

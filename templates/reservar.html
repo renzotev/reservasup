@@ -1,8 +1,26 @@
-<ion-view view-title="BUSCAR RECURSO" hide-back-button="true">
+<ion-view view-title="RESERVAR" hide-back-button="true">
 	<ion-content>
 		<div class="blue-block">
+			<div class="steps">
+				<ul class="circles">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
 			<form class="search-resource">
 				<div class="list">
+					<div class="date-picker-wrapper">
+						<onezone-datepicker datepicker-object="onezoneDatepicker">
+							<label class="item item-input">
+								<span class="input-label ion-android-calendar"></span>
+								<input type="text" class="show-onezone-datepicker" value="{{onezoneDatepicker.date | date:'dd/MM/yyyy'}}">
+									
+								<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
+							</label>
+						</onezone-datepicker>
+					</div>
+
 					<label class="item item-input">
 						<span class="input-label ion-android-desktop"></span>
 						<select class="select-resource">
@@ -14,7 +32,7 @@
 							<option value="LABFIN">Laboratorio Financiero (Bloomberg)</option>
 						</select>
 
-						<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">
+						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
 					</label>
 
 					<label class="item item-input">
@@ -42,7 +60,7 @@
 							<option value="LCUP-H">Pabellón H LCUP</option>
 						</select>
 
-						<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">
+						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
 					</label>
 
 					<label class="item item-input">
@@ -54,14 +72,9 @@
 							<option value="6">6</option>
 						</select>
 
-						<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">
+						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
 					</label>
-				</div>
-			</form>
-		</div>
-		<div class="date-picker-wrapper">
-			<onezone-datepicker datepicker-object="onezoneDatepicker">
-				<div class="list">
+
 					<label class="item item-input">
 						<span class="input-label ion-android-time"></span>
 						<select class="select-resource">
@@ -106,47 +119,46 @@
 						<span class="input-label ion-android-time"></span>
 						<select class="select-resource">
 							<option>Hora de fin</option>
-							<option value="23:30">23:30</option>
-							<option value="23:00">23:00</option>
-							<option value="22:30">22:30</option>
-							<option value="22:00">22:00</option>
-							<option value="21:30">21:30</option>
-							<option value="21:00">21:00</option>
-							<option value="20:30">20:30</option>
-							<option value="20:00">20:00</option>
-							<option value="19:30">19:30</option>
-							<option value="19:00">19:00</option>
-							<option value="18:30">18:30</option>
-							<option value="18:00">18:00</option>
-							<option value="17:30">17:30</option>
-							<option value="17:00">17:00</option>
-							<option value="16:30">16:30</option>
-							<option value="16:00">16:00</option>
-							<option value="15:30">15:30</option>
-							<option value="15:00">15:00</option>
-							<option value="14:30">14:30</option>
-							<option value="14:00">14:00</option>
-							<option value="13:30">13:30</option>
-							<option value="13:00">13:00</option>
-							<option value="12:30">12:30</option>
-							<option value="12:00">12:00</option>
-							<option value="11:30">11:30</option>
-							<option value="11:00">11:00</option>
-							<option value="10:30">10:30</option>
-							<option value="10:00">10:00</option>
-							<option value="09:30">09:30</option>
-							<option value="09:00">09:00</option>
-							<option value="08:30">08:30</option>
-							<option value="08:00">08:00</option>
 							<option value="07:30">07:30</option>
+							<option value="08:00">08:00</option>
+							<option value="08:30">08:30</option>
+							<option value="09:00">09:00</option>
+							<option value="09:30">09:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="13:00">13:00</option>
+							<option value="13:30">13:30</option>
+							<option value="14:00">14:00</option>
+							<option value="14:30">14:30</option>
+							<option value="15:00">15:00</option>
+							<option value="15:30">15:30</option>
+							<option value="16:00">16:00</option>
+							<option value="16:30">16:30</option>
+							<option value="17:00">17:00</option>
+							<option value="17:30">17:30</option>
+							<option value="18:00">18:00</option>
+							<option value="18:30">18:30</option>
+							<option value="19:00">19:00</option>
+							<option value="19:30">19:30</option>
+							<option value="20:00">20:00</option>
+							<option value="20:30">20:30</option>
+							<option value="21:00">21:00</option>
+							<option value="21:30">21:30</option>
+							<option value="22:00">22:00</option>
+							<option value="22:30">22:30</option>
+							<option value="23:00">23:00</option>
+							<option value="23:30">23:30</option>
 						</select>
 					</label>
 				</div>
-
-				<div class="search-form-wrapper">
-					<a class="button button-block button-balanced show-onezone-datepicker">BUSCAR RECURSO</a>	
-				</div>
-			</onezone-datepicker>
+			</form>
+		</div>
+		<div class="search-form-wrapper">
+			<a class="button button-block button-balanced" href="#/app/elegir">BUSCAR SALAS DISPONIBLES</a>	
 		</div>
 		<!--
 		<div class="search-form-wrapper">

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.calendar', 'angularSoap', 'starter.controllers'])
+angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.calendar', 'starter.controllers'])
 
 .factory('nfcService', function ($rootScope, $ionicPlatform) {
   var tag = {};
@@ -31,6 +31,19 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.cale
           angular.copy({}, this.tag);
       }
   };
+})
+
+.directive('onFinishRender', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit(attr.onFinishRender);
+                });
+            }
+        }
+    }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -97,6 +110,25 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.cale
     views: {
       'menuContent': {
         templateUrl: 'templates/recurso.html'
+      }
+    }
+  })
+
+  .state('app.elegir', {
+    url: '/elegir',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/elegir.html',
+        controller: 'ElegirCtrl'
+      }
+    }
+  })
+
+  .state('app.confirmar', {
+    url: '/confirmar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/confirmar.html'
       }
     }
   })

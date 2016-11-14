@@ -1,6 +1,52 @@
+.platform-up .radio-icon {
+  visibility: visible !important;
+}
+.platform-up .radio-icon:before {
+  content: "" !important;
+  border: 2px solid #000 !important;
+  width: 24px !important;
+  height: 24px !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+.platform-up .radio-icon:after {
+  content: "" !important;
+  position: absolute !important;
+  right: 20px !important;
+  top: 23px !important;
+  background: #000 !important;
+  width: 12px !important;
+  height: 12px !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  -webkit-transition: -webkit-transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -moz-transition: -webkit-transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -o-transition: -webkit-transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  transition: -webkit-transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -webkit-transition: transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -moz-transition: transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -o-transition: transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  transition: transform 0.28s cubic-bezier(0.42, 0, 0, 1.65);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.item-radio input:checked + .radio-content .radio-icon:after {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.radio-positive .radio-icon:after {
+  background: #387ef5 !important;
+}
+.radio-positive .radio-icon:before {
+  border-color: #0c63ee !important;
+}
 html,
-body,
-background-color bg_body {
+body {
+  background-color: #f3f3f3;
   color: #555;
 }
 h1,
@@ -34,6 +80,11 @@ h6 {
   text-transform: uppercase;
   font-size: 14px;
 }
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
 .onezone-datepicker-disable-day,
 .onezone-datepicker-different-month.onezone-datepicker-disable-day {
   text-decoration: line-through;
@@ -53,8 +104,10 @@ h6 {
 }
 .onezone-datepicker {
   width: calc(100% - 30px) !important;
-  margin: 30px auto;
-  border: 1px solid #cbd5dd;
+  margin: 0 auto;
+}
+.onezone-datepicker.onezone-datepicker-show {
+  margin-bottom: 15px;
 }
 [nav-bar-transition="ios"] [nav-bar="active"] .bar,
 [nav-bar-transition="ios"] [nav-bar="entering"] .bar,
@@ -91,15 +144,14 @@ h6 {
 }
 .hours-wrapper {
   margin: 30px 15px;
-}
-.hours-wrapper .ion-android-time {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -8px;
-  color: #cbd5dd;
-  font-size: 20px;
-  margin-top: -14px;
+/*.ion-android-time
+		position absolute
+		top 50%
+		left 50%
+		margin-left -8px
+		color #CBD5DD
+		font-size 20px
+		margin-top -14px*/
 }
 .hours-wrapper .checkbox input:checked:before,
 .hours-wrapper .checkbox input:checked + .checkbox-icon:before {
@@ -283,9 +335,6 @@ h6 {
   top: 50%;
   margin-top: -10px;
 }
-.date-picker-wrapper {
-  margin-top: -15px;
-}
 .date-picker-wrapper .center-date {
   display: block;
   margin-left: 20px;
@@ -350,7 +399,10 @@ h6 {
   padding: 0;
 }
 .search-form-wrapper {
-  margin: 0 15px 30px 15px;
+  margin: 15px 30px;
+}
+.search-form-wrapper.m-50 {
+  margin: 15px;
 }
 .search-form-wrapper .button.button-balanced {
   -webkit-border-radius: 0;
@@ -394,4 +446,65 @@ h6 {
 .white-block .profile-info .profile-image img {
   max-width: 100%;
   height: auto;
+}
+.steps {
+  text-align: right;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+.steps.p-50 {
+  padding-top: 15px;
+  padding-right: 15px;
+}
+.steps .circles {
+  display: inline-block;
+}
+.steps .circles li {
+  margin: 0 2px;
+  display: inline-block;
+  background-color: #11c1f3;
+  border: 1px solid #0a9dc7;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  line-height: 27px;
+  opacity: 0.5;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  font-weight: bold;
+}
+.steps .circles li.active {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+.itemSala .separatorSala {
+  display: inline-block;
+  margin: 0 5px;
+}
+.itemSalaHidden {
+  display: none;
+  background: #e3e2ff;
+  border: 1px solid #ddd;
+  border-top: 2px solid #fff;
+  margin: -1px;
+  padding: 10px 15px;
+}
+.itemSalaHidden .rItmSaHi {
+  margin-bottom: 10px;
+}
+.itemSalaHidden .rItmSaHi:last-child {
+  margin-bottom: 0;
+}
+.itemSalaHidden .c-blue {
+  color: #0970bd;
+}
+.item-radio input:checked + .radio-content .item-content {
+  background: #e3e2ff;
+}
+.confirmarReserva .item {
+  background-color: #33cd5f;
+  color: #fff;
 }

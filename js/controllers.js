@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window, $ionicSideMenuDelegate) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window, $ionicSideMenuDelegate, $ionicPopup) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);*/
     $ionicSideMenuDelegate.canDragContent(true);
-    $window.location.href = '#/app/perfil';
+    $window.location.href = '#/app/reservar';
   };
 
   $scope.activarReserva = function () {
@@ -77,10 +77,7 @@ angular.module('starter.controllers', [])
       calendarMode: false,
       hideCancelButton: true,
       hideSetButton: true,
-      highlights: [],
-      callback: function(value){
-        $window.location.href = '#/app/hora';
-      }
+      highlights: []
   };
 })
 
@@ -100,10 +97,31 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ReservCtrl', function($scope, soapService) {
-  soapService.ListarTipoRecurso().then(function(response){
-    $scope.response = response;
+.controller('ReservCtrl', function($scope) {
+  
+})
+
+.controller('ElegirCtrl', function($scope, $ionicPopup) {
+   $scope.disponibles = [
+    { capacidad: "6", sala: "A-603", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-604", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-605", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-606", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-607", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-608", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-609", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-610", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-611", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" },
+    { capacidad: "6", sala: "A-612", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png" }
+  ];
+
+  $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+    $(".hours-wrapper label").on("click", function () {
+      $(".itemSalaHidden").hide();
+      $(this).next().show();
+    });
   });
+  
 })
 
 .controller('HoraCtrl', function($scope) {
@@ -123,15 +141,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.factory("soapService", ['$soap',function($soap){
-    var base_url = "http://localhost:3034/ReservaService.svc?wsdl";
 
-    return {
-        ListarTipoRecurso: function(){
-            return $soap.post(base_url,"ListarTipoRecurso");
-        }
-    }
-}])
 
 .factory('nfcService', function ($rootScope, $ionicPlatform, $nfcServiceProvider) {
   var tag = {};
