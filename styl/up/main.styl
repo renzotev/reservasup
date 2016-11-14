@@ -11,6 +11,15 @@ h5,
 h6
 	color color_general
 
+select
+	-webkit-appearance none
+	-moz-appearance none
+	text-indent 1px
+	text-overflow ''
+
+select::-ms-expand
+	display none
+
 .pane,
 .view
 	background-color bg_body
@@ -116,6 +125,14 @@ h6
 	.hour-detail
 		position relative
 		clearfix()
+	
+	&.hide-radio
+		.item-radio
+			.item-content
+				padding-right 16px
+			
+			.radio-icon
+				display none
 
 .week-resume
 	position relative

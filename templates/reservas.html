@@ -1,0 +1,58 @@
+<ion-view view-title="RESERVAS" hide-back-button="true">
+	<ion-content>
+		<div class="hours-wrapper hide-radio">
+			<ion-list>
+				<div ng-repeat="item in disponibles">
+					<ion-radio
+			                 ng-value="item.value"
+			                class="radio-positive" on-finish-render="ngRepeatFinished">
+						
+						<div class="itemSala">
+			                <span class="ion-android-desktop"></span>
+			        		{{ item.sala }}
+								
+			        		<span class="separatorSala">|</span>
+			        		
+			        		<span class="ion-android-calendar"></span>
+			        		{{ item.fecha }}
+		        		</div>
+
+			      	</ion-radio>
+			      	<div class="itemSalaHidden">
+			      		<div class="rItmSaHi">
+		        			<span class="ion-android-calendar"></span>
+		        			Fecha: {{ item.fecha }}
+	        			</div>
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-time"></span>
+		        			Inicio: {{ item.inicio }}
+	        			</div>
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-time"></span>
+		        			Fin: {{ item.fin }}
+	        			</div>
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-desktop"></span>
+		        			Sala: {{ item.sala }}
+	        			</div>
+	        			<div class="rItmSaHi">
+		        			<span class="ion-android-people"></span>
+		        			Capacidad: {{ item.capacidad }}
+	        			</div>
+						<div class="rItmSaHi c-blue" ng-click="show1 = !show1">
+	        				<span class="ion-camera"></span>
+	        				Foto
+	        				<img src="{{ item.foto }}" class="img-responsive" ng-show="show1">
+	        			</div>
+	        			<div class="rItmSaHi c-blue" ng-click="show2 = !show2">
+		        			<span class="ion-location"></span>
+		        			Ubicación
+		        			<img src="{{ item.ubicacion }}" class="img-responsive" ng-show="show2">
+	        			</div>
+	        		</div>
+				</div>
+			</ion-list>
+		</div>
+
+	</ion-content>
+</ion-view>

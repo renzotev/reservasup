@@ -124,6 +124,23 @@ angular.module('starter.controllers', [])
   
 })
 
+.controller('ReservasCtrl', function($scope, $ionicPopup) {
+   $scope.disponibles = [
+    { capacidad: "6", sala: "A-603", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png", fecha: "14/11/2016", inicio: "07:00AM", fin:"09:00AM" },
+    { capacidad: "6", sala: "A-604", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png", fecha: "14/11/2016", inicio: "07:00AM", fin:"09:00AM" },
+    { capacidad: "6", sala: "A-605", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png", fecha: "14/11/2016", inicio: "07:00AM", fin:"09:00AM" },
+    { capacidad: "6", sala: "A-612", foto: "img/LCUP-A-603.jpg", ubicacion: "img/LCUP-A-603.png", fecha: "14/11/2016", inicio: "07:00AM", fin:"09:00AM" }
+  ];
+
+  $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+    $(".hours-wrapper label").on("click", function () {
+      $(".itemSalaHidden").hide();
+      $(this).next().show();
+    });
+  });
+  
+})
+
 .controller('HoraCtrl', function($scope) {
   $scope.eventSources = [];
 

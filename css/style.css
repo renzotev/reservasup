@@ -15,7 +15,7 @@
   content: "" !important;
   position: absolute !important;
   right: 20px !important;
-  top: 23px !important;
+  top: 22px !important;
   background: #000 !important;
   width: 12px !important;
   height: 12px !important;
@@ -56,6 +56,15 @@ h4,
 h5,
 h6 {
   color: #555;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+select::-ms-expand {
+  display: none;
 }
 .pane,
 .view {
@@ -169,6 +178,12 @@ h6 {
 }
 .hours-wrapper .hour-detail:after {
   clear: both;
+}
+.hours-wrapper.hide-radio .item-radio .item-content {
+  padding-right: 16px;
+}
+.hours-wrapper.hide-radio .item-radio .radio-icon {
+  display: none;
 }
 .week-resume {
   position: relative;

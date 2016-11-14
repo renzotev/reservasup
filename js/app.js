@@ -124,6 +124,16 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.cale
     }
   })
 
+  .state('app.reservas', {
+    url: '/reservas',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/reservas.html',
+        controller: 'ReservasCtrl'
+      }
+    }
+  })
+
   .state('app.confirmar', {
     url: '/confirmar',
     views: {
