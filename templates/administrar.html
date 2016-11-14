@@ -1,28 +1,51 @@
-<ion-view view-title="RESERVAR" hide-back-button="true">
-	<ion-content>
-		<div class="blue-block">
-			<div class="steps">
-				<ul class="circles">
-					<li class="active">1</li>
-					<li>2</li>
-					<li>3</li>
-				</ul>
-			</div>
-			<form class="search-resource">
-				<div class="list">
-					
-					<label class="item item-input">
-						<span class="input-label ion-android-desktop"></span>
-						<select class="select-resource">
-							<option value="">Seleccione tipo de recurso</option>
-							<option value="COMPU">Computadoras</option>
-							<option value="DEPORT">Area Deportiva</option>
-							<option value="ESTAC">Estacionamiento</option>
-							<option value="ESTUDI">Sala de Estudio</option>
-							<option value="LABFIN">Laboratorio Financiero (Bloomberg)</option>
-						</select>
+<ion-view view-title="ADMINISTRAR" hide-back-button="true">
+<ion-tabs class="tabs-positive tabs-icon-top">
 
-						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
+  <ion-tab title="Bloqueo de salas" icon-on="ion-unlocked" icon-off="ion-unlocked">
+    <div class="inner-page">
+    	<h3 class="title-tab pull-left">Vigentes</h2>
+    	<button class="button button-small button-positive pull-right" ng-click="modal.show()">
+		  	+ AGREGAR
+		</button>
+		<div class="clearfix"></div>
+    	<hr>
+
+    	<div class="card bar-assertive">
+			<div class="item item-text-wrap">
+				Por el momento no se encuentra ninguna sala bloqueada.
+			</div>
+		</div>
+    </div>
+  </ion-tab>
+
+  <ion-tab title="Opcupación de salas" icon-on="ion-grid" icon-off="ion-grid">
+  	<div class="inner-page">
+    	<h3 class="title-tab">Administración de salas</h2>
+    	<hr>
+    </div>
+  </ion-tab>
+
+</ion-tabs>
+</ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title pull-left">Nuevo bloqueo</h1>
+      <button class="button button-small button-assertive pull-right" style="width: 34px" ng-click="modal.hide()">
+		<span class="ion-close"></span>
+	</button>
+      <div class="clearfix"></div>
+    </ion-header-bar>
+    <ion-content>
+      <form class="search-resource">
+				<div class="list">
+					<label class="item item-input">
+						<input type="text" placeholder="Nombre de la reserva" style="min-height: 47px">
+					</label>
+
+					<label class="item item-input">
+						<input type="text" placeholder="Responsable de la reserva" style="min-height: 47px">
 					</label>
 
 					<label class="item item-input">
@@ -53,17 +76,35 @@
 						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
 					</label>
 
-					<label class="item item-input">
-						<span class="input-label ion-android-people"></span>
-						<select class="form-control col-sm-12 col-md-12" id="BuildingCode_nombre" name="BuildingCode.nombre">
-							<option value="">Seleccione capacidad</option>
-							<option value="2">2</option>
-							<option value="4">4</option>
-							<option value="6">6</option>
-						</select>
-
-						<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
+					<label class="item item-input" style="border:0 none; margin-bottom: 0px">
+						Día Inicio
 					</label>
+
+					<div class="date-picker-wrapper">
+						<onezone-datepicker datepicker-object="onezoneDatepicker">
+							<label class="item item-input">
+								<span class="input-label ion-android-calendar"></span>
+								<input type="text" disabled="disabled" class="show-onezone-datepicker" value="{{onezoneDatepicker.date | date:'dd/MM/yyyy'}}">
+									
+								<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
+							</label>
+						</onezone-datepicker>
+					</div>
+
+					<label class="item item-input" style="border:0 none; margin-bottom: 0px">
+						Día fin
+					</label>
+
+					<div class="date-picker-wrapper">
+						<onezone-datepicker datepicker-object="onezoneDatepicker2">
+							<label class="item item-input">
+								<span class="input-label ion-android-calendar"></span>
+								<input type="text" disabled="disabled" class="show-onezone-datepicker" value="{{onezoneDatepicker2.date | date:'dd/MM/yyyy'}}">
+									
+								<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
+							</label>
+						</onezone-datepicker>
+					</div>
 
 					<label class="item item-input">
 						<span class="input-label ion-android-time"></span>
@@ -144,26 +185,11 @@
 							<option value="23:30">23:30</option>
 						</select>
 					</label>
-
-					<div class="date-picker-wrapper">
-						<onezone-datepicker datepicker-object="onezoneDatepicker">
-							<label class="item item-input">
-								<span class="input-label ion-android-calendar"></span>
-								<input type="text" disabled="disabled" class="show-onezone-datepicker" value="{{onezoneDatepicker.date | date:'dd/MM/yyyy'}}">
-									
-								<!--<input type="hidden" value="{{onezoneDatepicker.date | date:'dd MMMM yyyy'}}">-->
-							</label>
-						</onezone-datepicker>
-					</div>
 				</div>
 			</form>
-		</div>
-		<div class="search-form-wrapper">
-			<a class="button button-block button-balanced" href="#/app/elegir">BUSCAR SALAS DISPONIBLES</a>	
-		</div>
-		<!--
-		<div class="search-form-wrapper">
-			<a class="button button-block button-balanced show-onezone-datepicker">BUSCAR RECURSO</a>	
-		</div>-->
-	</ion-content>
-</ion-view>
+			<div class="search-form-wrapper">
+				<a class="button button-block button-balanced" href="#/app/elegir" ng-click="modal.hide()">SIGUIENTE</a>	
+			</div>
+    </ion-content>
+  </ion-modal-view>
+</script>

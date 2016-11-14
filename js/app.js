@@ -143,6 +143,16 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'nfcFilters', 'ui.cale
     }
   })
 
+  .state('app.administrar', {
+    url: '/administrar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/administrar.html',
+        controller: 'AdminCtrl'
+      }
+    }
+  })
+
   .state('app.activar', {
     url: '/activar',
     views: {

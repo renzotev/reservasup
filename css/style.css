@@ -516,10 +516,16 @@ select::-ms-expand {
 .itemSalaHidden .c-blue {
   color: #0970bd;
 }
+.itemSalaHidden .c-red {
+  color: #ef473a;
+}
 .item-radio input:checked + .radio-content .item-content {
   background: #e3e2ff;
 }
 .confirmarReserva .item {
   background-color: #33cd5f;
   color: #fff;
+}
+.inner-page {
+  padding: 70px 15px 15px;
 }

@@ -79,6 +79,25 @@ angular.module('starter.controllers', [])
       hideSetButton: true,
       highlights: []
   };
+
+  $scope.onezoneDatepicker2 = {
+      date: new Date(), // MANDATORY
+      mondayFirst: true,
+      months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      daysOfTheWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      //startDate: new Date(1989, 1, 26),
+      //endDate: new Date(2024, 1, 26),
+      disablePastDays: true,
+      disableSwipe: false,
+      disableWeekend: false,
+      disableDates: [new Date(2016, 7, 2), new Date(2016, 7, 3), new Date(2016, 7, 4)],
+      showDatepicker: false,
+      showTodayButton: false,
+      calendarMode: false,
+      hideCancelButton: true,
+      hideSetButton: true,
+      highlights: []
+  };
 })
 
 
@@ -137,6 +156,10 @@ angular.module('starter.controllers', [])
       $(".itemSalaHidden").hide();
       $(this).next().show();
     });
+
+    $(".hours-wrapper .c-red").on("click", function () {
+      $(this).parent().parent().slideUp();
+    });
   });
   
 })
@@ -158,7 +181,32 @@ angular.module('starter.controllers', [])
   };
 })
 
-
+.controller('AdminCtrl', function($scope, $ionicModal) {
+    $ionicModal.fromTemplateUrl('my-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+})
 
 .factory('nfcService', function ($rootScope, $ionicPlatform, $nfcServiceProvider) {
   var tag = {};
